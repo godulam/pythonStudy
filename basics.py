@@ -31,7 +31,13 @@ print('\n{0:.3f}'.format(pi))
 # (^) to 22 width '___hello___'
 print('{0:_^22}'.format('hello'))
 
-# keyword-based 'Zbigniew wrote "Necronicon'
+# keyword-based 'Zbigniew wrote "Necronicon"'
 print('{name} wrote {book}'.format(name='Zbigniew', book='Necronicon'))
 
-# escape 
+# escape characters
+print('\tjan\tmaria\trokita\n\tjan\tzbigniew\twodecki')
+print('This is not really long string \
+but I will still separate it.')
+
+# raw string (no escape characters)
+print(r'Des \n pa \n cito')
