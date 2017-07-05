@@ -12,5 +12,5 @@ for y in range (1,11):
 
 print ()
 print (matrix[5,6])
-print(matrix[2,9])
+print(matrix[1,10])
 
