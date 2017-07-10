@@ -1,3 +1,6 @@
+# calculator that uses dictionary to perform all equations
+# because there is no switch/case statement in python
+# which sucks...
 sum = 0
 
 def add(a,b):
