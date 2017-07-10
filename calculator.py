@@ -24,13 +24,13 @@ elif (action=='/' and a.isnumeric() and b.isnumeric()):
     print('The div is ',float(a)/float(b))
 # modulo
 elif (action=='%' and a.isnumeric() and b.isnumeric()):
-    print('The div is ',float(a)%float(b))
+    print('The modulo is ',float(a)%float(b))
 # exponent
 elif (action=='**' and a.isnumeric() and b.isnumeric()):
-    print('The div is ',float(a)**float(b))
+    print('The exponent is ',float(a)**float(b))
 # floor division
 elif (action=='//' and a.isnumeric() and b.isnumeric()):
-    print('The div is ',float(a)//float(b))
+    print('The floor div is ',float(a)//float(b))
 # if the input is wrong, below message is printed out
 else:
     print('wrong input')
