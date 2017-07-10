@@ -2,7 +2,7 @@
 for i in range(1, 20, 4):
     print(i)
 else:
-    print('The for loop is over')
+    print('The for loop is over.')
 
 print()
 
