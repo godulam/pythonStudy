@@ -14,8 +14,7 @@ b = input('type second value: ')
 def calculator():
     '''
     IT IS A SIMPLE CALCULATOR AND I'M A CAPS FAN.
-
-    THIS IS TEXT
+    THIS IS TEXT.
     '''
     # sum
     if (action == '+' and a.isnumeric() and b.isnumeric()):
@@ -51,7 +50,7 @@ def calculator():
     else:
         print('wrong input')
 
+
 calculator()
 # below line prints out comment in ''' ''' from the start of the function
 print(calculator.__doc__)
-
