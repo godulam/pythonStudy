@@ -124,8 +124,8 @@ while True:
 
     if len(input_list) in [4, 5]:
         tr_dir = input_list[0]
-    tr_cell_id = input_list[1]
-    tr_MS_id = input_list[2]
+        tr_cell_id = input_list[1]
+        tr_MS_id = input_list[2]
     if input_list[3] == 'missing':
         tr_signal = input_list[3]
     else:
@@ -133,12 +133,8 @@ while True:
     if len(input_list) == 5:
         tr_quality = input_list[4]
 
-    try:
-
-        if tr_dir == 'DL' and tr_cell_id == 'S0' and mobile_station_pattern.match(tr_MS_id) \
-                and ((int(tr_signal) <= -45 and int(tr_signal) >= -95) or tr_signal == 'missing') \
-                and int(tr_quality) >= 0 and int(tr_quality) <= 5:
-            missingDL()
+    if isinstance(tr_signal, int ):
+        if tr_dir == 'DL' and tr_cell_id == 'S0' and mobile_station_pattern.match(tr_MS_id) and tr_signal <= -45 and tr_signal >= -95:
             append_to_dictionary(input_list)
             if len(DL[tr_MS_id]) >= 4:
                 average_temp = averageSignalDL(tr_MS_id)
@@ -149,9 +145,7 @@ while True:
                 print('Not enough input measurements')
                 continue
 
-        elif tr_dir == 'UL' and tr_cell_id == 'S0' and mobile_station_pattern.match(tr_MS_id) \
-                and ((int(tr_signal) <= -45 and int(tr_signal) >= -95) or tr_signal == 'missing') \
-                and int(tr_quality) >= 0 and int(tr_quality) <= 5:
+        elif tr_dir == 'UL' and tr_cell_id == 'S0' and mobile_station_pattern.match(tr_MS_id) and tr_signal <= -45 and tr_signal >= -95:
             append_to_dictionary(input_list)
             if len(UL[tr_MS_id]) >= 4:
                 average_temp = averageSignalUL(tr_MS_id)
@@ -162,16 +156,32 @@ while True:
                 print('Not enough input measurements')
                 continue
 
-        elif cell_id_pattern.match(tr_cell_id):
-            print('\n', end='')
-            continue
+    elif tr_signal == 'missing':
+        if tr_dir == 'DL' and tr_cell_id == 'S0' and mobile_station_pattern.match(tr_MS_id) and tr_signal == 'missing':
+            missingDL()
+            if len(DL[tr_MS_id]) >= 4:
+                average_temp = averageSignalUL(tr_MS_id)
+                print('Average signal: ', average_temp)
+                decision(average_temp)
+                continue
+            else:
+                print('Not enough input measurements')
+                continue
 
-        else:
-            print('\nPlease provide correct input\n')
-            continue
+        elif tr_dir == 'UL' and tr_cell_id == 'S0' and mobile_station_pattern.match(tr_MS_id) and tr_signal == 'missing':
+            missingUL()
+            if len(UL[tr_MS_id]) >= 4:
+                average_temp = averageSignalUL(tr_MS_id)
+                print('Average signal: ', average_temp)
+                decision(average_temp)
+                continue
+            else:
+                print('Not enough input measurements')
+                continue
 
-    except:
-        pass
+    elif cell_id_pattern.match(tr_cell_id):
+        print('\n', end='')
+        continue
 
     else:
         print('\nPlease provide correct input\n')
