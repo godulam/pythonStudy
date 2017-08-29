@@ -6,7 +6,6 @@
 # tshark
 # sudo tshark -te -i enp0s3 -f "src 10.0.2.15" -T fields -e frame.time_epoch -e ip.dst
 
-
 import MySQLdb
 
 db = MySQLdb.connect(host="localhost",    # your host, usually localhost
