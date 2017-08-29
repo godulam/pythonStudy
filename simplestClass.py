@@ -1,13 +1,9 @@
 #!/bin/python3
 
+
 class Person:
-
-    def __init__(self, name):
-        self.name = name
-
     def say_hi(self):
-        print("Hi! My name is ", self.name)
+        print('Hello, how are you?')
 
-p=Person('Kokos')
-
+p = Person()
 p.say_hi()
