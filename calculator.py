@@ -5,6 +5,8 @@ from sys import argv
 program, a, action, b = argv
 """
 
+# comment
+
 a = input('type first value: ')
 action = input('what kind of operation you\'d like to perform?\n \
 (+ - / * %[modulo] **[exponent] //[floor division]): ')
